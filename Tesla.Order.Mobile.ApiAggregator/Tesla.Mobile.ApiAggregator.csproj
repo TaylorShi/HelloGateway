@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>09a5108d-e13d-4caf-b871-f8d1e27bdffb</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.49.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Protobuf Include="..\HelloGrpcProto\Protos\order.proto" Link="Protos\order.proto" />
+    <Protobuf Include="..\HelloGrpcProto\Protos\pay.proto" Link="Protos\pay.proto" />
+  </ItemGroup>
+</Project>
