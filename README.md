@@ -24,4 +24,4 @@ BFF紧密地集中在一个单一的用户界面上，而且只是那个用户�
 
 ## 相关文章
 
-* [乘风破浪，遇见最佳跨平台跨终端框架.Net Core/.Net生态 - 浅析ASP.NET Core网关和BFF，使用Ocelot打造面向移动和桌面专属服务](https://www.cnblogs.com/taylorshi/p/16818182.html)
+* [乘风破浪，遇见最佳跨平台跨终端框架.Net Core/.Net生态 - 浅析ASP.NET Core网关和BFF，使用Ocelot/Envoy/YARP打造专用网关模式](https://www.cnblogs.com/taylorshi/p/16818182.html)
