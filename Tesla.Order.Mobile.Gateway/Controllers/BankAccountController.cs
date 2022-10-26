@@ -2,39 +2,32 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
-using System.Text;
 
-namespace Tesla.Mobile.ApiAggregator.Controllers
+namespace Tesla.Mobile.Gateway.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class TestController : ControllerBase
+    public class BankAccountController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Abc()
+        /// <summary>
+        /// 使用默认的身份验证方案
+        /// </summary>
+        /// <returns></returns>
+        [Authorize]
+        public IActionResult Default()
         {
-            return Content("Tesla.Mobile.ApiAggregator");
+            return Content("Bank Account");
         }
 
-        [HttpGet]
-        public IActionResult ShowRequestUri()
+        /// <summary>
+        /// 使用Cookie身份验证方案
+        /// </summary>
+        /// <returns></returns>
+        [Authorize(AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
+        public IActionResult Cookie()
         {
-            return Content(Request.GetDisplayUrl());
-        }
-
-        [HttpGet]
-        public IActionResult ShowHeaders()
-        {
-            var sb = new StringBuilder();
-            Request.Headers.ToList().ForEach(item =>
-            {
-                sb.AppendLine($"{item.Key}:{item.Value}");
-            });
-
-            return Content(sb.ToString());
+            return Content(User.FindFirst("Name").Value);
         }
 
         /// <summary>
